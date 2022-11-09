@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="orange-line"></div>
         <div className="footer-nav">
           <img src={Logo} alt="Logo" className="footer-logo" />
-          <nav className="header-nav">
+          <nav className="header-nav mb">
             <ul className="header-nav-ul">
               <li className="header-nav-li">
                 <Link to="/">HOME</Link>
@@ -36,30 +36,37 @@ const Footer = () => {
               devoted to helping you get the most out of personal audio. Come
               and visit our demo facility - we’re open 7 days a week.
             </p>
-            <p>Copyright 2021. All Rights Reserved</p>
+            <p className="mobile-desktop-p">
+              Copyright 2021. All Rights Reserved
+            </p>
           </div>
           <div className="footer-icons">
-            <a
-              href="https://www.facebook.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src={fbIcon} alt="fb" />
-            </a>
-            <a
-              href="https://twitter.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src={twIcon} alt="tw" />
-            </a>
-            <a
-              href="https://www.instagram.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src={instaIcon} alt="instagram" />
-            </a>
+            <p className="mobile-footer-p">
+              Copyright 2021. All Rights Reserved
+            </p>
+            <div className="footer-icon">
+              <a
+                href="https://www.facebook.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={fbIcon} alt="fb" />
+              </a>
+              <a
+                href="https://twitter.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={twIcon} alt="tw" />
+              </a>
+              <a
+                href="https://www.instagram.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={instaIcon} alt="instagram" />
+              </a>
+            </div>
           </div>
         </div>
       </div>

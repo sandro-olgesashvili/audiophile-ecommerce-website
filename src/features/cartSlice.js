@@ -4,8 +4,9 @@ import dataJson from "../data.json";
 const initialState = {
   cartItems: dataJson,
   buyItem: [],
-  openClose: true,
-  total: 0
+  openClose: false,
+  openCloseCartMobile:false,
+  total: 0,
 };
 
 export const cartSlice = createSlice({
@@ -44,6 +45,15 @@ export const cartSlice = createSlice({
         total += Number(item.quantity) * Number(item.price)
       })
       state.total = total
+    },
+    closeCart: (state) => {
+      state.openClose = false
+    },
+    onOffMobile : (state) => {
+      state.openCloseCartMobile = !state.openCloseCartMobile
+    },
+    closerMenu: (state) => {
+      state.openCloseCartMobile = false
     }
   },
 });
@@ -55,7 +65,10 @@ export const {
   decrease,
   removeItem,
   removeAll,
-  totalCounter
+  totalCounter,
+  closeCart,
+  onOffMobile,
+  closerMenu
 } = cartSlice.actions;
 
 export default cartSlice.reducer;

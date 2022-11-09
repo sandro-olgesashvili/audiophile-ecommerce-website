@@ -1,16 +1,27 @@
 import { useSelector } from "react-redux";
-import { increase, decrease, removeItem, removeAll } from "../features/cartSlice";
+import {
+  increase,
+  decrease,
+  removeItem,
+  removeAll,
+  openCloseCart,
+} from "../features/cartSlice";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 const CartItems = () => {
+
   const dispatch = useDispatch();
   const { buyItem, total } = useSelector((store) => store.cart);
   return (
-    <div className="cart-items-container">
+    <div className="cart-items-container" style={{height:document.body.scrollHeight}}>
       <div className="cart-items">
         <div className="cart-items-s">
           <div className="cart-items-header">
             <h2 className="cart-items-header-title">cart ({buyItem.length})</h2>
-            <button className="cart-items-header-title-remove" onClick={() => dispatch(removeAll())}>
+            <button
+              className="cart-items-header-title-remove"
+              onClick={() => dispatch(removeAll())}
+            >
               Remove all
             </button>
           </div>
@@ -50,9 +61,18 @@ const CartItems = () => {
           </div>
           <div className="cart-item-total">
             <span className="cart-item-total-text">TOTAL</span>
-            <span className="cart-item-total-price">$ {total.toLocaleString()}</span>
+            <span className="cart-item-total-price">
+              $ {total.toLocaleString()}
+            </span>
           </div>
-          <button className="checkout-btn">checkout</button>
+          <Link to="/checkout">
+            <button
+              className="checkout-btn"
+              onClick={() => dispatch(openCloseCart())}
+            >
+              checkout
+            </button>
+          </Link>
         </div>
       </div>
     </div>

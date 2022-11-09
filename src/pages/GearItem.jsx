@@ -11,6 +11,8 @@ const GearItem = () => {
   const { gearId } = useParams();
   const [counter, setCounter] = useState(1);
 
+  const [innerWidth, setInnerWidth] = useState(window.innerWidth);
+
   const { cartItems, buyItem } = useSelector((store) => store.cart);
 
   useEffect(() => {
@@ -28,17 +30,30 @@ const GearItem = () => {
               Go Back
             </button>
             <div className="item-gear-purchase">
-              <img
-                src={process.env.PUBLIC_URL + item.image.desktop}
-                alt={item.name}
-                className="gear-item-image"
-              />
+              {innerWidth <= 415 ? (
+                <img
+                  src={process.env.PUBLIC_URL + item.image.mobile}
+                  alt={item.name}
+                />
+              ) : innerWidth <= 800 ? (
+                <img
+                  src={process.env.PUBLIC_URL + item.image.tablet}
+                  alt={item.name}
+                />
+              ) : (
+                <img
+                  src={process.env.PUBLIC_URL + item.image.desktop}
+                  alt={item.name}
+                />
+              )}
               <div>
                 {item.new && (
-                  <h3 className="category-item-info-new">NEW PRODUCT</h3>
+                  <h3 className="category-item-info-new tab">NEW PRODUCT</h3>
                 )}
-                <h2 className="category-item-info-name">{item.name}</h2>
-                <p className="category-item-info-text">{item.description}</p>
+                <h2 className="category-item-info-name tab">{item.name}</h2>
+                <p className="category-item-info-text tab">
+                  {item.description}
+                </p>
                 <span className="gear-item-price">
                   $ {item.price.toLocaleString()}
                 </span>
@@ -72,14 +87,16 @@ const GearItem = () => {
               </div>
               <div className="gear-item-box">
                 <h3 className="gear-item-box-title">in the box</h3>
-                {item.includes.map((item, index) => (
-                  <div key={index} className="gear-item-box-info">
-                    <span className="gear-item-box-info-quantity">
-                      {item.quantity}x
-                    </span>
-                    <span>{item.item}</span>
-                  </div>
-                ))}
+                <div className="for-tb">
+                  {item.includes.map((item, index) => (
+                    <div key={index} className="gear-item-box-info">
+                      <span className="gear-item-box-info-quantity">
+                        {item.quantity}x
+                      </span>
+                      <span>{item.item}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
             <div className="gear-item-gallery">
@@ -96,6 +113,7 @@ const GearItem = () => {
               <img
                 src={process.env.PUBLIC_URL + item.gallery.third.desktop}
                 alt=""
+                className="for-tb-image-size"
               />
             </div>
             <div className="gear-item-others">
@@ -103,10 +121,22 @@ const GearItem = () => {
               <div className="gear-item-others-items">
                 {item.others.map((item, index) => (
                   <div className="gear-item-others-item" key={index}>
-                    <img
-                      src={process.env.PUBLIC_URL + item.image.desktop}
-                      alt={item.slug}
-                    />
+                    {window.innerWidth <= 415 ? (
+                      <img
+                        src={process.env.PUBLIC_URL + item.image.mobile}
+                        alt={item.name}
+                      />
+                    ) : window.innerWidth <= 800 ? (
+                      <img
+                        src={process.env.PUBLIC_URL + item.image.tablet}
+                        alt={item.name}
+                      />
+                    ) : (
+                      <img
+                        src={process.env.PUBLIC_URL + item.image.desktop}
+                        alt={item.slug}
+                      />
+                    )}
                     <span>{item.name}</span>
                     <Link to={`/${item.slug}`}>
                       <button className="category-item-info-btn">

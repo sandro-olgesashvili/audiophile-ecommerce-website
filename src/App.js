@@ -8,23 +8,25 @@ import Category from "./pages/Category";
 import GearItem from "./pages/GearItem";
 import CartItems from "./components/CartItems";
 import { useEffect } from "react";
-import {useDispatch} from 'react-redux'
-import {totalCounter} from './features/cartSlice'
+import { useDispatch } from "react-redux";
+import { totalCounter } from "./features/cartSlice";
+import Checkout from "./pages/Checkout";
+import MobileNav from "./components/MobileNav";
 
 function App() {
-  const dispatch = useDispatch()
-  const { cartItems, buyItem, openClose } = useSelector((store) => store.cart);
+  const dispatch = useDispatch();
+  const { cartItems, buyItem, openClose, openCloseCartMobile } = useSelector((store) => store.cart);
 
   useEffect(() => {
-    dispatch(totalCounter())
-  }, [buyItem, cartItems, openClose])
-
+    dispatch(totalCounter());
+  }, [buyItem, cartItems, openClose]);
 
   console.log(buyItem);
   return (
     <div>
       <Header />
       {openClose && <CartItems />}
+      {openCloseCartMobile && <MobileNav />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
@@ -40,6 +42,7 @@ function App() {
           element={<Category categoryName="earphones" />}
         />
         <Route path="/:gearId" element={<GearItem />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
       <Footer />
     </div>

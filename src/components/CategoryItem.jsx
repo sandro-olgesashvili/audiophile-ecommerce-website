@@ -7,10 +7,22 @@ const CategoryItem = ({ item, index }) => {
         className="category-item-image-container"
         style={{ order: index === 1 ? "2" : "0" }}
       >
-        <img
-          src={process.env.PUBLIC_URL + item.categoryImage.desktop}
-          alt={item.name}
-        />
+        {window.innerWidth <= 415 ? (
+          <img
+            src={process.env.PUBLIC_URL + item.categoryImage.mobile}
+            alt={item.name}
+          />
+        ) : window.innerWidth <= 800 ? (
+          <img
+            src={process.env.PUBLIC_URL + item.categoryImage.tablet}
+            alt={item.name}
+          />
+        ) : (
+          <img
+            src={process.env.PUBLIC_URL + item.categoryImage.desktop}
+            alt={item.name}
+          />
+        )}
       </div>
       <div
         className="category-item-info"
