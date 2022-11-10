@@ -222,12 +222,17 @@ const Checkout = () => {
               </div>
               <div className="totla-info">
                 <span>VAT (INCLUDED)</span>
-                <span>$ 1,079</span>
+                <span>
+                  $ {Number(((total * 20) / 100).toFixed()).toLocaleString()}
+                </span>
               </div>
               <div className="totla-info">
                 <span>GRAND TOTAL</span>
                 <span style={{ color: "#D87D4A" }}>
-                  $ {(total + 50 + 1079).toLocaleString()}
+                  ${" "}
+                  {Number(
+                    (total + 50 + (total * 20) / 100).toFixed()
+                  ).toLocaleString()}
                 </span>
               </div>
             </div>
