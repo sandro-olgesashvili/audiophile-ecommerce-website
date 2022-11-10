@@ -18,5 +18,5 @@
 
 ## Author
 
-- Website - [Planets](https://sandro-olgesashvili.github.io/audiophile-ecommerce-website/)
+- Website - [audiophile-ecommerce](https://sandro-olgesashvili.github.io/audiophile-ecommerce-website/)
 - Frontend Mentor - [@sandro-olgesashvili](https://github.com/sandro-olgesashvili)
