@@ -1,9 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import dataJson from "../data.json";
 
+let prodL = JSON.parse(localStorage.getItem('buyitem'))
+
 const initialState = {
   cartItems: dataJson,
-  buyItem: [],
+  buyItem: prodL ?prodL  : [],
   openClose: false,
   openCloseCartMobile:false,
   total: 0,
