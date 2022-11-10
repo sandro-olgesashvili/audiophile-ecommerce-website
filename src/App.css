@@ -1660,7 +1660,6 @@ input[type="radio"] {
     flex-direction: column;
   }
   .category-item-info-name {
-    width: 134px;
     line-height: 50px;
   }
   .tab {

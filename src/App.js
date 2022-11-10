@@ -21,7 +21,7 @@ function App() {
     dispatch(totalCounter());
   }, [buyItem, cartItems, openClose]);
 
-  console.log(buyItem);
+
   return (
     <div>
       <Header />

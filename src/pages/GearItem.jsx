@@ -19,7 +19,6 @@ const GearItem = () => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, [gearId]);
 
-  console.log(buyItem);
   return (
     <div className="gear-item">
       {cartItems
