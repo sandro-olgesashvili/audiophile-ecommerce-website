@@ -243,6 +243,7 @@ const Checkout = () => {
             </div>
             <button
               className="checkout-btn"
+              disabled={buyItem.length === 0}
               onClick={() => {
                 dispatch(paymentToggle());
                 window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
