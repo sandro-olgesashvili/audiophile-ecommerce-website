@@ -4,6 +4,8 @@ import speakersImage from "../icons/home/image-category-thumbnail-speakers.png";
 import arrow from "../icons/icon-arrow-right.svg";
 import { Link } from "react-router-dom";
 
+
+
 const HomeNav = () => {
   return (
     <div className="home-nav-items">

@@ -10,7 +10,6 @@ const Checkout = () => {
   const navigate = useNavigate();
   const { buyItem, total, paymentOnOff } = useSelector((store) => store.cart);
 
-  console.log(buyItem);
   return (
     <section className="section-checkout">
       {paymentOnOff && <Payment />}
