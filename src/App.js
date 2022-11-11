@@ -20,7 +20,7 @@ function App() {
   useEffect(() => {
     dispatch(totalCounter());
     localStorage.setItem("buyitem", JSON.stringify(buyItem))
-  }, [buyItem, cartItems, openClose]);
+  }, [buyItem, cartItems, openClose, openCloseCartMobile]);
 
 
   return (

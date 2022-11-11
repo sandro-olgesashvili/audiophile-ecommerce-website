@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { openCloseCart, closeCart } from "../features/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { onOffMobile } from "../features/cartSlice";
-import { closerMenu } from "../features/cartSlice";
+import { closerMenu, paymentOff } from "../features/cartSlice";
 const Header = () => {
   const dispatch = useDispatch();
   const { buyItem } = useSelector((store) => store.cart);
@@ -17,6 +17,7 @@ const Header = () => {
             onClick={() => {
               dispatch(onOffMobile());
               dispatch(closeCart());
+              dispatch(paymentOff());
             }}
           >
             <span></span>
@@ -70,6 +71,7 @@ const Header = () => {
           onClick={() => {
             dispatch(openCloseCart());
             dispatch(closerMenu());
+            dispatch(paymentOff());
           }}
         />
       </div>

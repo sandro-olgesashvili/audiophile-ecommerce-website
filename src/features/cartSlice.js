@@ -9,6 +9,7 @@ const initialState = {
   openClose: false,
   openCloseCartMobile:false,
   total: 0,
+  paymentOnOff : false
 };
 
 export const cartSlice = createSlice({
@@ -56,6 +57,12 @@ export const cartSlice = createSlice({
     },
     closerMenu: (state) => {
       state.openCloseCartMobile = false
+    },
+    paymentToggle: (state) => {
+      state.paymentOnOff = !state.paymentOnOff
+    },
+    paymentOff: (state) => {
+      state.paymentOnOff = false
     }
   },
 });
@@ -70,7 +77,9 @@ export const {
   totalCounter,
   closeCart,
   onOffMobile,
-  closerMenu
+  closerMenu,
+  paymentToggle,
+  paymentOff
 } = cartSlice.actions;
 
 export default cartSlice.reducer;

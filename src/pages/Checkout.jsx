@@ -1,14 +1,19 @@
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import cashIcon from "../icons/icon-cash-on-delivery.svg";
-
+import Payment from "../components/Payment";
+import { paymentToggle } from "../features/cartSlice";
 const Checkout = () => {
+  const dispatch = useDispatch();
   const [pay, setPay] = useState("e-Money");
   const navigate = useNavigate();
-  const { buyItem, total } = useSelector((store) => store.cart);
+  const { buyItem, total, paymentOnOff } = useSelector((store) => store.cart);
+
+  console.log(buyItem);
   return (
     <section className="section-checkout">
+      {paymentOnOff && <Payment />}
       <div className="checkout-container">
         <button className="go-back" onClick={() => navigate(-1)}>
           Go Back
@@ -236,7 +241,15 @@ const Checkout = () => {
                 </span>
               </div>
             </div>
-            <button className="checkout-btn">CONTINUE & PAY</button>
+            <button
+              className="checkout-btn"
+              onClick={() => {
+                dispatch(paymentToggle());
+                window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+              }}
+            >
+              CONTINUE & PAY
+            </button>
           </div>
         </div>
       </div>
